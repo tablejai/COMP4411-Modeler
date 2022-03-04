@@ -3,8 +3,9 @@
 #include "modelerview.h"
 #include "modelerapp.h"
 #include "modelerdraw.h"
+#include "Spider.h"
 #include <FL/gl.h>
-
+#include "SpiderModel.h"
 #include "modelerglobals.h"
 
 // To make a SampleModel, we inherit off of ModelerView
@@ -21,7 +22,13 @@ public:
 // nasty API stuff that we'd rather stay away from.
 ModelerView* createSampleModel(int x, int y, int w, int h, char *label)
 { 
-    return new SampleModel(x,y,w,h,label); 
+    return new SampleModel(x,y,w,h,label);
+}
+Spider* spider;
+ModelerView* createSpiderModel(int x, int y, int w, int h, char* label)
+{
+	
+	return new SpiderModel(x,y,w,h,label);
 }
 
 // We are going to override (is that the right word?) the draw()
@@ -38,7 +45,7 @@ void SampleModel::draw()
 	setDiffuseColor(COLOR_RED);
 	glPushMatrix();
 	glTranslated(-5,0,-5);
-	drawBox(10,0.01f,10);
+	drawBox(0.01f,0.01f,0.01f);
 	glPopMatrix();
 
 	// draw the sample model
@@ -50,7 +57,7 @@ void SampleModel::draw()
 		glPushMatrix();
 		glTranslated(-1.5, 0, -2);
 		glScaled(3, 1, 4);
-		drawBox(1,1,1);
+		drawBox(2,2,2);
 		glPopMatrix();
 
 		// draw cannon
@@ -76,12 +83,20 @@ int main()
 	// Constructor is ModelerControl(name, minimumvalue, maximumvalue, 
 	// stepsize, defaultvalue)
     ModelerControl controls[NUMCONTROLS];
-    controls[XPOS] = ModelerControl("X Position", -5, 5, 0.1f, 0);
-    controls[YPOS] = ModelerControl("Y Position", 0, 5, 0.1f, 0);
-    controls[ZPOS] = ModelerControl("Z Position", -5, 5, 0.1f, 0);
-    controls[HEIGHT] = ModelerControl("Height", 1, 2.5, 0.1f, 1);
-	controls[ROTATE] = ModelerControl("Rotate", -135, 135, 1, 0);
+    controls[XPOS] = ModelerControl("X Position", -5, 5, 0.01f, 0);
+    controls[YPOS] = ModelerControl("Y Position", 0, 5, 0.01f, 0);
+    controls[ZPOS] = ModelerControl("Z Position", -5, 5, 0.01f, 0);
+	controls[XTHETA] = ModelerControl("X Theta", 0,360, 0.01f, 0);
+	controls[YTHETA] = ModelerControl("Y Theta", 0,360, 0.01f, 0);
+	controls[ZTHETA] = ModelerControl("Z Theta", 0,360, 0.01f, 0);
+    controls[HEIGHT] = ModelerControl("Height", 1, 2.5, 0.01f, 1);
+	controls[ROTATE] = ModelerControl("Rotate", -135, 135, 0.01f, 0);
 
-    ModelerApplication::Instance()->Init(&createSampleModel, controls, NUMCONTROLS);
+
+   // ModelerApplication::Instance()->Init(&createSampleModel, controls, NUMCONTROLS);
+	//ModelerApplication::Instance()->Init(&(createSpiderModel), controls, NUMCONTROLS);
+	ModelerApplication::Instance()->Init(&(createSpiderModel), controls, NUMCONTROLS);
+
+
     return ModelerApplication::Instance()->Run();
 }

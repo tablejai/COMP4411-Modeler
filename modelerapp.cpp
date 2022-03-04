@@ -11,7 +11,7 @@
 
 // CLASS ModelerControl METHODS
 
-ModelerControl::ModelerControl() : m_minimum(0.0f), m_maximum(1.0f), m_stepsize(0.1f), m_value(0.0f)
+ModelerControl::ModelerControl() : m_minimum(0.0f), m_maximum(1.0f), m_stepsize(1.0f), m_value(0.0f)
 {
 }
 
@@ -100,6 +100,7 @@ void ModelerApplication::Init(ModelerViewCreator_f createView,
         slider->range(controls[i].m_minimum, controls[i].m_maximum);
         slider->step(controls[i].m_stepsize);
         slider->value(controls[i].m_value);
+        slider->precision(2.0);
         slider->hide(); 
         m_controlValueSliders[i] = slider;
         slider->callback((Fl_Callback*)ModelerApplication::SliderCallback);
@@ -144,6 +145,7 @@ int ModelerApplication::Run()
 
 double ModelerApplication::GetControlValue(int controlNumber)
 {
+    //return 0.0;
     return m_controlValueSliders[controlNumber]->value();
 }
 
@@ -162,7 +164,7 @@ void ModelerApplication::ShowControl(int controlNumber)
 void ModelerApplication::HideControl(int controlNumber)
 {
     m_controlLabelBoxes[controlNumber]->hide();
-    m_controlValueSliders[controlNumber]->hide();
+   m_controlValueSliders[controlNumber]->hide();
     m_ui->m_controlsWindow->redraw();
 }
 

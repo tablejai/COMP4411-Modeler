@@ -7,6 +7,13 @@
 
 #include "modelerview.h"
 
+#define TestComp(Component)\
+Component->xoffset = VAL(XPOS);\
+Component->yoffset = VAL(YPOS);\
+Component->zoffset = VAL(ZPOS);\
+Component->thetaxOff = VAL(XTHETA);\
+Component->thetayOff = VAL(YTHETA);\
+Component->thetazOff = VAL(ZTHETA);
 struct ModelerControl
 {
 	ModelerControl();
@@ -70,6 +77,7 @@ private:
 	int					  m_numControls;
 
     Fl_Box               **m_controlLabelBoxes;
+
     Fl_Value_Slider      **m_controlValueSliders;
 
     static void SliderCallback(Fl_Slider *, void*);
