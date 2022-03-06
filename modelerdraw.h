@@ -10,7 +10,11 @@
 
 #include "modelerglobals.h"
 
-
+struct XYZ {
+	double x;
+	double y;
+	double z;
+};
 enum DrawModeSetting_t 
 { NONE=0, NORMAL, WIREFRAME, FLATSHADE, };
 

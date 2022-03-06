@@ -2,11 +2,12 @@
 #include "modelerview.h"
 #include "modelerapp.h"
 #include "modelerdraw.h"
+#include "MetaBall.h"
 #include "UpperLeg.h"
 #include <FL/gl.h>
-
+#include "global.h"
 #include "modelerglobals.h"
-
+#include "canon.h"
 struct Spider
 {
     Spider(int x, int y,int z, int w,int l,int h, ModelerView* view);
@@ -26,8 +27,8 @@ struct Spider
     UpperLeg* uld_Leg;
     UpperLeg* uru_Leg;
     UpperLeg* urd_Leg;
-
-
+    MetaBall* metaball;
+    Canon* canon;
 
     virtual void draw();
 };

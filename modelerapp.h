@@ -7,17 +7,6 @@
 
 #include "modelerview.h"
 #include "math.h"
-#define TestComp(Component)\
-Component->xoffset = VAL(XPOS);\
-Component->yoffset = VAL(YPOS);\
-Component->zoffset = VAL(ZPOS);\
-Component->thetaxOff = VAL(XTHETA);\
-Component->thetayOff = VAL(YTHETA);\
-Component->thetazOff = VAL(ZTHETA);
-#define OscillateCompX(Component,offset)\
-Component->thetaxOff = sin(VAL(OSCILLATEX))/2*offset;
-#define OscillateCompY(Component,offset)\
-Component->thetayOff = sin(VAL(OSCILLATEY))/2*offset;
 
 struct ModelerControl
 {

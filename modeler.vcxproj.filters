@@ -63,6 +63,9 @@
     <ClCompile Include="MetaBall.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="canon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bitmap.h">
@@ -117,6 +120,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MetaBall.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="canon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

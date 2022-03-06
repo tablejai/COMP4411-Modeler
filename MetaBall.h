@@ -8,11 +8,27 @@
 #include "Component.h"
 #include "Hand.h"
 
+#include  <utility>
+typedef struct {
+    XYZ p[3];
+} Tri;
+
+typedef struct {
+    XYZ p[8];
+    double val[8];
+    int operator=( std::pair< XYZ*, double*>& input) {
+        for (int i = 0;i < 8;i++) {
+            p[i] = input.first[i];
+            val[i] = input.second[i];
+        }
+        return 1;
+    }
+} Cell;
+
 struct MetaBall : public Component
 {
     float radius;
     virtual void draw();
-
     int edgeTable[256] = {
         0x0  , 0x109, 0x203, 0x30a, 0x406, 0x50f, 0x605, 0x70c,
         0x80c, 0x905, 0xa0f, 0xb06, 0xc0a, 0xd03, 0xe09, 0xf00,
@@ -303,5 +319,7 @@ struct MetaBall : public Component
     { 0, 9, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
     { 0, 3, 8, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
     { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 } };
-    MetaBall(int x, int y, int z, float r, float L, char* label);
+    MetaBall(int x, int y, int z, float r, char* label);
+    void drawBall( const double r);
+    void polygonizeFunc(double , Cell);
 };

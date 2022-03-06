@@ -1,4 +1,5 @@
 #include "UpperLeg.h"
+using namespace std;
  UpperLeg::UpperLeg(int x, int y,int z, float r, float L, char* label):Component(UPPERLEG){
 	 this->x = x;
 	 this->y = y;
@@ -8,7 +9,10 @@
 	 this->thetax = 0;
 	 joint = new Joint(0,0,0,radius,this);
 	 lowerleg = new LowerLeg(0,0,2.91+0.93,r,L,nullptr);
-	 
+	  for (int i = 0;i < 2;i++) {
+		  MetaBall* ptr = new MetaBall(0, 0, i*2+0.4, 1.0f, nullptr);
+		 metaballs.push_back(ptr);
+	  }
 	  xoffset = 0 ;//for debug mainly
 	  yoffset = 0 ;
 	  zoffset = 0;
@@ -39,11 +43,13 @@ void UpperLeg::draw()
 	//glPushMatrix();
  	glPushMatrix();
 
-	//glTranslated(-radius/2,-radius/2, -length/2);// draw at center
 	drawCylinder(length,radius,radius);
+	for (auto& balls : metaballs) {
+		//TestComp(balls);
+		balls->draw();
+	}
 	lowerleg->draw();
 	glPopMatrix();
-
 	glPopMatrix();
 	glPopMatrix();
 	glPopMatrix();

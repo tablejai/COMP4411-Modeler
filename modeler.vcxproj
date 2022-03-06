@@ -190,6 +190,7 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ClCompile Include="Hand.cpp" />
+    <ClCompile Include="canon.cpp" />
     <ClCompile Include="Spider.cpp" />
     <ClCompile Include="SpiderModel.cpp" />
     <ClCompile Include="UpperLeg.cpp" />
@@ -198,7 +199,9 @@
   <ItemGroup>
     <ClInclude Include="bitmap.h" />
     <ClInclude Include="camera.h" />
+    <ClInclude Include="canon.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="global.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="Head.h" />
     <ClInclude Include="Joint.h" />

@@ -1,3 +1,4 @@
+#pragma once
 #include "modelerview.h"
 #include "modelerapp.h"
 #include "modelerdraw.h"
@@ -10,24 +11,23 @@
 #include "global.h"
 #include <vector>
 #include <algorithm>
-
-struct UpperLeg: public Component
+struct SmallCanon : public Component
 {
-    //float x;
-    //float y;
-    //float z;
-    //float xoffset;//for debug mainly
-    //float yoffset;
-    //float zoffset;
-    //float thetax;
-    //float thetay;
-    //float thetaz;
-    //float thetaxOff;
-    //float thetayOff;
-    //float thetazOff;
+
     float length;
     float radius;
-    UpperLeg(int x, int y,int z,float r, float L, char* label);
+    SmallCanon(int x, int y, int z, float r, float L, char* label);
+    Joint* joint;
+    LowerLeg* lowerleg;
+    std::vector<MetaBall*> metaballs;
+    virtual void draw();
+};
+struct Canon : public Component
+{
+   
+    float length;
+    float radius;
+    Canon(int x, int y, int z, float r, float L, char* label);
     Joint* joint;
     LowerLeg* lowerleg;
     std::vector<MetaBall*> metaballs;
