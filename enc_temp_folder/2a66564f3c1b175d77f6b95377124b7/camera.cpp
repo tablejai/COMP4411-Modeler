@@ -206,6 +206,7 @@ void Camera::lookAt(Vec3f eye, Vec3f at, Vec3f up)
 	m[5] = upVec[1];
 	m[9] = upVec[2];
 	m[13] = 0.0;
+	// --------------------
 	m[2] = -forward[0];
 	m[6] = -forward[1];
 	m[10] = -forward[2];

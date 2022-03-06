@@ -41,7 +41,6 @@ void LowerLeg::draw()
 
 	//glTranslated(-radius/2,-radius/2, -length/2);// draw at center
 	drawCylinder(length, radius, radius);
-	TestComp(hand);
 	hand->draw();
 	glPopMatrix();
 

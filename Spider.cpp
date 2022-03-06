@@ -47,6 +47,12 @@ void Spider::draw()
 	drawSphere(1);
 	glPopMatrix();
 	//TestComp(ulu_Leg);
+	OscillateCompY(ulu_Leg,10);
+	OscillateCompY(uld_Leg, -10);
+	OscillateCompY(uru_Leg, 10);
+	OscillateCompY(urd_Leg, -10);
+
+
 	ulu_Leg->draw();
 	uld_Leg->draw();
 	uru_Leg->draw();

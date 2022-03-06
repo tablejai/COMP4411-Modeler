@@ -90,6 +90,8 @@ int main()
 	controls[YTHETA] = ModelerControl("Y Theta", 0,360, 0.01f, 0);
 	controls[ZTHETA] = ModelerControl("Z Theta", 0,360, 0.01f, 0);
     controls[HEIGHT] = ModelerControl("Height", 1, 2.5, 0.01f, 1);
+	controls[OSCILLATEX] = ModelerControl("Wiggle", 0,200, 0.01f, 1);
+	controls[OSCILLATEY] = ModelerControl("Walk", 0, 200, 0.01f, 1);
 	controls[ROTATE] = ModelerControl("Rotate", -135, 135, 0.01f, 0);
 
 
