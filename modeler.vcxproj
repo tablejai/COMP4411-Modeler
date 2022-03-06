@@ -158,6 +158,7 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Head.cpp" />
     <ClCompile Include="Joint.cpp" />
+    <ClCompile Include="MetaBall.cpp" />
     <ClCompile Include="modelerapp.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -202,6 +203,7 @@
     <ClInclude Include="Head.h" />
     <ClInclude Include="Joint.h" />
     <ClInclude Include="LowerLeg.h" />
+    <ClInclude Include="MetaBall.h" />
     <ClInclude Include="SpiderModel.h" />
     <ClInclude Include="UpperLeg.h" />
     <ClInclude Include="mat.h" />

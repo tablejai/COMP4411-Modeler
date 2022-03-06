@@ -40,7 +40,7 @@ void Spider::draw()
 	setAmbientColor(.1f, .1f, .1f);
 	setDiffuseColor(COLOR_GREEN);
 	glPushMatrix();
-	glTranslated(x, y,z);
+	glTranslated(VAL(XPOS), VAL(YPOS),VAL(ZPOS));
 	glPushMatrix();
 	//glTranslated(-w/2.0, -h/2.0, -l/2.0);
 	glScaled(w, h,l );

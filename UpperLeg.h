@@ -9,18 +9,18 @@
 
 struct UpperLeg: public Component
 {
-    float x;
-    float y;
-    float z;
-    float xoffset;//for debug mainly
-    float yoffset;
-    float zoffset;
-    float thetax;
-    float thetay;
-    float thetaz;
-    float thetaxOff;
-    float thetayOff;
-    float thetazOff;
+    //float x;
+    //float y;
+    //float z;
+    //float xoffset;//for debug mainly
+    //float yoffset;
+    //float zoffset;
+    //float thetax;
+    //float thetay;
+    //float thetaz;
+    //float thetaxOff;
+    //float thetayOff;
+    //float thetazOff;
     float length;
     float radius;
     UpperLeg(int x, int y,int z,float r, float L, char* label);
