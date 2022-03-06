@@ -66,7 +66,7 @@ void MetaBall::polygonizeFunc(double iso, Cell grid)
 void MetaBall::drawBall(const double r) {
 
     double threshold = verticeValueCal(-0.6, 0, 0, 1.12, 0, 0) + verticeValueCal(0.6, 0, 0, 1.12, 0, 0);
-    double size = 0.21f;
+    double size = VAL(RESOLUTIONMETABALL);
     double border = 0.21;
     for (double x = 0; x <= 2*r+2*border; x += size) {
             for (double y =0; y <= 2*r + 2*border; y += size) {

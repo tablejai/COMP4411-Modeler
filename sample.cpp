@@ -91,8 +91,8 @@ int main()
 	controls[ZTHETA] = ModelerControl("Z Theta", 0,360, 0.01f, 0);
     controls[HEIGHT] = ModelerControl("Height", 1, 2.5, 0.01f, 1);
 	controls[OSCILLATEY] = ModelerControl("Walk", 0, 200, 0.01f, 1);
-	controls[RESOLUTIONMETABALL] = ModelerControl("RESOLUTIONMETABALL", 0, 180, 0.01f, 1);
-	controls[MOVECANON] = ModelerControl("MOVECANON", 0, 1, 0.01f, 1);
+	controls[RESOLUTIONMETABALL] = ModelerControl("RESOLUTIONMETABALL", 0.13, 1, 0.001f, 1);
+	controls[MOVECANON] = ModelerControl("MOVECANON", 0, 180, 0.01f, 1);
 
 	controls[ROTATE] = ModelerControl("Rotate", -135, 135, 0.01f, 0);
 

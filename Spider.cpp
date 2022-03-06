@@ -59,6 +59,7 @@ void Spider::draw()
 	uru_Leg->draw();
 	urd_Leg->draw();
 	//TestComp(canon);
+	canon->thetayOff = VAL(MOVECANON);
 	canon->draw();
 	glPopMatrix();
 }

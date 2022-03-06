@@ -84,12 +84,16 @@ void Canon::draw()
 	//glPushMatrix();
 	glPushMatrix();
 
+	glPushMatrix();
+	glRotatef(90, 1, 0, 0);
+	glTranslated(0, 0 , -radius);
+	drawCylinder(radius*3, 2*radius, 2*radius);
+	glPopMatrix();
 	drawCylinder(length, radius, radius);
-	//for (auto& balls : metaballs) {
-	//	TestComp(balls);
-	//	balls->draw();
-	//}
-//	lowerleg->draw();
+	glPushMatrix();
+	drawCylinder(length*0.5, 2 * radius, 2 * radius);
+	glPopMatrix();
+
 	glPopMatrix();
 	glPopMatrix();
 	glPopMatrix();
