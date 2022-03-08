@@ -1,6 +1,36 @@
 #include "Spider.h"
+#include "bitmap.h"
+
+void Spider::loadTextureShield(char* fName) {
+	int textureWidth, textureHeight;
+	unsigned char* image = readBMP(fName, textureWidth, textureHeight);
+
+	GLuint textureObj;
+
+	glGenTextures(1, &textureObj);
+	glBindTexture(GL_TEXTURE_2D, textureObj);
+
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, textureWidth, textureHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, image);	
+
+	glEnable(GL_TEXTURE_2D);
+	glBegin(GL_QUADS);
+
+	glNormal3d(0, 0, -1.0);
+	glTexCoord2f(0.0, 1.0); glVertex3d(0.0, -1.0, 0.0);
+	glTexCoord2f(0.0, 0.0); glVertex3d(0.0, -1.0, 1.0);
+	glTexCoord2f(1.0, 0.0); glVertex3d(1.0, -1.0, 1.0);
+	glTexCoord2f(1.0, 1.0); glVertex3d(1.0, -1.0, 0.0);
 
 
+	glEnd();
+	glDisable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, 0);
+}
 
 Spider::Spider(int x, int y, int z,int w, int h, int L, ModelerView * view) {
 	float lg_xoffset = 0.82;
@@ -48,6 +78,8 @@ void Spider::draw()
 	//glTranslated(-w/2.0, -h/2.0, -l/2.0);
 	glScaled(w, h,l );
 	drawSphere(1);
+	loadTextureShield("meme.bmp");
+
 	glPopMatrix();
 	//TestComp(ulu_Leg);
 	OscillateCompY(ulu_Leg,10);

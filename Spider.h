@@ -8,6 +8,8 @@
 #include "global.h"
 #include "modelerglobals.h"
 #include "canon.h"
+#include "GL/gl.h"
+
 struct Spider
 {
     Spider(int x, int y,int z, int w,int l,int h, ModelerView* view);
@@ -31,4 +33,5 @@ struct Spider
     Canon* canon;
 
     virtual void draw();
+    void loadTextureShield(char * fName);
 };
