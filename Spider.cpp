@@ -21,17 +21,16 @@ void Spider::loadTextureShield(char* fName) {
 	glBegin(GL_QUADS);
 
 	glNormal3d(0, 0, -1.0);
-	glTexCoord2f(0.0, 1.0); glVertex3d(0.0, -1.0, 0.0);
-	glTexCoord2f(0.0, 0.0); glVertex3d(0.0, -1.0, 1.0);
-	glTexCoord2f(1.0, 0.0); glVertex3d(1.0, -1.0, 1.0);
-	glTexCoord2f(1.0, 1.0); glVertex3d(1.0, -1.0, 0.0);
+	glTexCoord2f(0.0, 1.0); glVertex3d(-3.0, -1.0, 1.0);
+	glTexCoord2f(0.0, 0.0); glVertex3d(-3.0, -1.0, 0.0);
+	glTexCoord2f(1.0, 0.0); glVertex3d(-2.0, -1.0, 0.0);
+	glTexCoord2f(1.0, 1.0); glVertex3d(-2.0, -1.0, 1.0);
 
 
 	glEnd();
 	glDisable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
-
 Spider::Spider(int x, int y, int z,int w, int h, int L, ModelerView * view) {
 	float lg_xoffset = 0.82;
 	float lg_zoffset = 0.88;
@@ -86,12 +85,12 @@ void Spider::draw()
 	OscillateCompY(uld_Leg, -10);
 	OscillateCompY(uru_Leg, 10);
 	OscillateCompY(urd_Leg, -10);
+
 	ulu_Leg->draw();
 	uld_Leg->draw();
 	uru_Leg->draw();
 	urd_Leg->draw();
 	//TestComp(canon);
-	canon->thetayOff = VAL(MOVECANON);
 	canon->draw();
 	glPopMatrix();
 }
