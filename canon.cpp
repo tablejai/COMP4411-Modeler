@@ -72,6 +72,19 @@ void Canon::draw()
 	glPushMatrix();
 	glRotatef(thetax + thetaxOff, 1, 0, 0);
 	glPushMatrix();
+	if (VAL(ANIMATE) == 1.0) {
+		static float dir = 1.0;
+		thetayOff += dir;
+		if (thetayOff == 180) {
+			dir = -1.0;
+		}
+		else if (thetayOff == 0) {
+			dir = 1.0;
+		}
+	}
+	else {
+		thetayOff = VAL(MOVECANON);
+	}
 	glRotatef(thetay + thetayOff, 0, 1, 0);
 	glPushMatrix();
 	glRotatef(thetaz + thetazOff, 0, 0, 1);
