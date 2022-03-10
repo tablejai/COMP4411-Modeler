@@ -8,12 +8,6 @@ Canon::Canon(int x, int y, int z, float r, float L, char* label) :Component(UPPE
 	this->length = L;
 	this->thetax = 0;
 	joint = new Joint(0, 0, 0, radius, this);
-	//lowerleg = new LowerLeg(0, 0, 2.91 + 0.93, r, L, nullptr);
-	//for (int i = 0;i < 2;i++) {
-	//	MetaBall* ptr = new MetaBall(0, 0, i * 2 + 0.4, 1.0f, nullptr);
-	//	metaballs.push_back(ptr);
-	//}
-
 	xoffset = 0;//for debug mainly
 	yoffset = 0;
 	zoffset = 0;
