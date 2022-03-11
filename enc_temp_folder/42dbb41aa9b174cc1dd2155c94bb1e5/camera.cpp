@@ -91,7 +91,7 @@ void Camera::calculateViewingTransformParameters()
 	MakeDiagonal(twistXform, 1.0f);
 	MakeHTrans(originXform, mLookAt);
 	
-	mPosition = Vec3f(0,0,0);
+	mPosition = Vec3f(0,1,1);
 	// grouped for (mat4 * vec3) ops instead of (mat4 * mat4) ops
 	//if (VAL(LSYSTEMDISPLAY) == 0) {
 	mPosition = originXform * (azimXform * (elevXform * (dollyXform * mPosition)));

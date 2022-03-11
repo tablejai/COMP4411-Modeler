@@ -98,9 +98,9 @@ void ModelerApplication::Init(ModelerViewCreator_f createView,
         Fl_Value_Slider *slider = new Fl_Value_Slider(0, 0, packWidth, sliderHeight,0);
         slider->type(1);
         slider->range(controls[i].m_minimum, controls[i].m_maximum);
-        slider->step(controls[i].m_stepsize);
+        slider->step(controls[i].m_stepsize);//this is useless lmao
         slider->value(controls[i].m_value);
-        slider->precision(2.0);
+        slider->precision(controls[i].m_stepsize);//this is the real one , only this affets the steps
         slider->hide(); 
         m_controlValueSliders[i] = slider;
         slider->callback((Fl_Callback*)ModelerApplication::SliderCallback);

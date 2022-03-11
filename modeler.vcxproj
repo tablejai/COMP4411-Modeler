@@ -156,8 +156,12 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ClCompile Include="Component.cpp" />
+    <ClCompile Include="DragonBranch.cpp" />
+    <ClCompile Include="Fractal.cpp" />
     <ClCompile Include="Head.cpp" />
     <ClCompile Include="Joint.cpp" />
+    <ClCompile Include="KochCurve.cpp" />
+    <ClCompile Include="Lsystem.cpp" />
     <ClCompile Include="MetaBall.cpp" />
     <ClCompile Include="modelerapp.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -201,11 +205,15 @@
     <ClInclude Include="camera.h" />
     <ClInclude Include="canon.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="DragonBranch.h" />
+    <ClInclude Include="Fractal.h" />
     <ClInclude Include="global.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="Head.h" />
     <ClInclude Include="Joint.h" />
+    <ClInclude Include="KochCurve.h" />
     <ClInclude Include="LowerLeg.h" />
+    <ClInclude Include="Lsystem.h" />
     <ClInclude Include="MetaBall.h" />
     <ClInclude Include="SpiderModel.h" />
     <ClInclude Include="UpperLeg.h" />
