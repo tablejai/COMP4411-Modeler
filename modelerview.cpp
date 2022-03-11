@@ -32,6 +32,11 @@ int ModelerView::handle(int event)
 	{
 	case FL_PUSH:
 		{
+			// TODO: remove this for project 4 after project 2
+			if (Fl::event_alt()) {
+				m_camera->clickMouse(kActionTwist, eventCoordX, eventCoordY);
+				break;
+			}
 			switch(eventButton)
 			{
 			case kMouseRotationButton:

@@ -21,10 +21,10 @@ void Spider::loadTextureShield(char* fName) {
 	glBegin(GL_QUADS);
 
 	glNormal3d(0, 0, -1.0);
-	glTexCoord2f(0.0, 1.0); glVertex3d(-3.0, -1.0, 1.0);
-	glTexCoord2f(0.0, 0.0); glVertex3d(-3.0, -1.0, 0.0);
-	glTexCoord2f(1.0, 0.0); glVertex3d(-2.0, -1.0, 0.0);
-	glTexCoord2f(1.0, 1.0); glVertex3d(-2.0, -1.0, 1.0);
+	glTexCoord2f(0.0, 1.0); glVertex3d(-1.0, -1.0, 1.0);
+	glTexCoord2f(0.0, 0.0); glVertex3d(-1.0, -1.0, 0.0);
+	glTexCoord2f(1.0, 0.0); glVertex3d(0.0, -1.0, 0.0);
+	glTexCoord2f(1.0, 1.0); glVertex3d(0.0, -1.0, 1.0);
 
 
 	glEnd();
