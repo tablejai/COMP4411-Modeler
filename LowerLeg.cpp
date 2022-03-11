@@ -40,8 +40,20 @@ void LowerLeg::draw()
 	glPushMatrix();
 
 	//glTranslated(-radius/2,-radius/2, -length/2);// draw at center
-	drawCylinder(length, radius, radius);
-	hand->draw();
+	if (VAL(TANK) == 0) {
+		drawCylinder(length, radius, radius);
+		hand->draw();
+
+	}
+	else {
+		glPushMatrix();
+		float size = length/pow(2,1/3.0) ;
+		glTranslated(-size / 2.0/2.0, -size / 2.0/2.0,-size*1.5/2.0);
+		drawBox(size/2.0, size/2.0,size*1.5);
+		glPopMatrix();
+		hand->draw();
+
+	}
 	glPopMatrix();
 
 	glPopMatrix();

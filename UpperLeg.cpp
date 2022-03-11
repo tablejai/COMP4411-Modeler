@@ -44,6 +44,7 @@ void UpperLeg::draw()
  	glPushMatrix();
 
 	drawCylinder(length,radius,radius);
+	
 	for (auto& balls : metaballs) {
 		//TestComp(balls);
 		balls->draw();

@@ -1,4 +1,6 @@
-#pragma once
+#pragma 
+#include <vector>
+using namespace std;
 #define TestComp(Component)\
 Component->xoffset = VAL(XPOS);\
 Component->yoffset = VAL(YPOS);\
@@ -7,9 +9,9 @@ Component->thetaxOff = VAL(XTHETA);\
 Component->thetayOff = VAL(YTHETA);\
 Component->thetazOff = VAL(ZTHETA);
 #define OscillateCompX(Component,offset)\
-Component->thetaxOff = sin(VAL(OSCILLATEX))/2*offset;
+Component->thetaxOff = sin(VAL(OSCILLATEX)/4.0)/2*offset;
 #define OscillateCompY(Component,offset)\
-Component->thetayOff = sin(VAL(OSCILLATEY))/2*offset;
+Component->thetayOff = sin(VAL(OSCILLATEY)/4.0)/2*offset;
 
 #define  GeneralDraw(Color,Code)\
 setAmbientColor(.1f, .1f, .1f);\
@@ -30,3 +32,5 @@ glPopMatrix(); \
 glPopMatrix(); \
 glPopMatrix();
 
+
+void drawFace(vector<vector<double>> points);

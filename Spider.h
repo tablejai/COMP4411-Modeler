@@ -32,6 +32,7 @@ struct Spider
     UpperLeg* urd_Leg;
     MetaBall* metaball;
     Canon* canon;
+    Canon* canon2;
     Head* head;
 
     virtual void draw();

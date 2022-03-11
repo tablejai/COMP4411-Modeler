@@ -147,7 +147,7 @@ void Spider::draw()
 	 if (VAL(TANK) == 2) {
 		head->yoffset = h*2.2;
 		head->xoffset = w;
-		head->height = 4;
+		head->height = 9;
 		glPushMatrix();
 		glRotatef(270, 1, 0, 0);
 		drawCylinder(h * 2.2,0.5,0.5);

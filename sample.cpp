@@ -90,7 +90,7 @@ int main()
 	controls[YTHETA] = ModelerControl("Y Theta", 0, 360, 0.01f, 0);
 	controls[ZTHETA] = ModelerControl("Z Theta", 0, 360, 0.01f, 0);
 	controls[HEIGHT] = ModelerControl("Height", 1, 2.5, 0.01f, 1);
-	controls[OSCILLATEY] = ModelerControl("Walk", 0, 200, 0.01f, 1);
+	controls[OSCILLATEY] = ModelerControl("Walk", 0, 200, 0.01f, 0);
 	controls[RESOLUTIONMETABALL] = ModelerControl("RESOLUTIONMETABALL", 0.13, 1, 2.0f, 1);
 	controls[LSYSTEMDISPLAY] = ModelerControl("L-System Display", 0, 1, 0.0, 0);
 	controls[LSYSTEMOBJECTTYPE] = ModelerControl("L-System ObjectType", 0, 3, 0, 0);
@@ -98,6 +98,7 @@ int main()
 	controls[LSYSTEMINITIALANGLE] = ModelerControl("L-System Initial Angle", 0, 360, 0.01f, 0);
 	controls[LSYSTEMITER] = ModelerControl("L-System iteration", 0, 10, 1.0f, 1);
 	controls[MOVECANON] = ModelerControl("MOVECANON", 0, 180, 0.01f, 1);
+	controls[TANK] = ModelerControl("Instances selections", 0, 2, 0, 0);
 	controls[ANIMATE] = ModelerControl("Animate", 0, 1, 1, 0);
 	controls[ROTATE] = ModelerControl("Rotate", -135, 135, 0.01f, 0);
 

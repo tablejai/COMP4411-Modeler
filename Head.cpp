@@ -24,31 +24,9 @@ using namespace std;
 
 }
 
-void drawRect(float length, float width,float height) {
-	 
-}
 
 
-void drawFace(vector<vector<double>> points) {
-	vector<double> pt1 = points[0];
 
-	vector<double> pt2 = points[1];
-#define mid(a,b) (a+b)/2.0
-	vector<double> mid = { mid(pt1[0],pt2[0]),mid(pt1[1],pt2[1]),mid(pt1[2],pt2[2])};
-	for (int i = 0;i < points.size();i++) {
-		vector<double> next;
-		if (i + 1 >= points.size()) {
-			next = points[0];
-		}
-		else {
-			next = points[i + 1];
-		}
-		vector<double> pt = points[i];
-		drawTriangle(pt[0], pt[1], pt[2], mid[0], mid[1], mid[2], next[0], next[1], next[2]);
-	}
-	
-
-}
 void  Head::draw()
 {
 	// This call takes care of a lot of the nasty projection 
@@ -59,18 +37,42 @@ void  Head::draw()
 #define WIDTH_HALF width/2
 #define LENGTH_HALF length/2
 
-	vector<vector<double>>Faces[8];
+	int count = 6;
+	vector<vector<double>>Faces[16];
 	//int counRect=0;
+	float offset = 0.8f;
 	for (int i = 0;i < 6;i++) {
-		Faces[0].push_back(vector<double>{ width*cos(i*M_PI/3.0), HEIGHT_HALF, width* sin(i* M_PI / 3.0) });
-		Faces[1].push_back(vector<double>{ width* cos(i* M_PI / 3.0), -HEIGHT_HALF, width* sin(i* M_PI / 3.0) });
-		if (i > 0) {
-				Faces[1 + i].push_back(vector<double>{ Faces[0][i - 1][0], -HEIGHT_HALF, Faces[0][i - 1][2] });
-				Faces[1 + i].push_back(vector<double>{ Faces[0][i - 1][0], HEIGHT_HALF, Faces[0][i - 1][2] });
-				Faces[1 + i].push_back(vector<double>{ Faces[0][i][0], HEIGHT_HALF, Faces[0][i][2] });
-				Faces[1+ i].push_back(vector<double>{ Faces[0][i][0], -HEIGHT_HALF, Faces[0][i][2] });
-		}
+		Faces[0].push_back(vector<double>{ width* cos(i* M_PI / 3.0), HEIGHT_HALF, width* sin(i* M_PI / 3.0) });
+		Faces[1].push_back(vector<double>{ width* cos(i* M_PI / 3.0), -HEIGHT_HALF, width* sin(i* M_PI / 3.0)});
 	}
+
+	for (int j = 1;j < 6;j++) {
+		int i = j + 2;
+		Faces[i].push_back(vector<double>{ Faces[0][j- 1][0], -HEIGHT_HALF, Faces[0][j - 1][2] });
+		Faces[i].push_back(vector<double>{ Faces[0][j - 1][0], HEIGHT_HALF, Faces[0][j - 1][2] });
+		Faces[i].push_back(vector<double>{ Faces[0][j][0], HEIGHT_HALF, Faces[0][j][2] });
+		Faces[i].push_back(vector<double>{ Faces[0][j][0], -HEIGHT_HALF, Faces[0][j][2] });
+	}
+	Faces[2].push_back(vector<double>{ Faces[0][5][0], -HEIGHT_HALF, Faces[0][5][2] });
+	Faces[2].push_back(vector<double>{ Faces[1][5][0], HEIGHT_HALF, Faces[1][5][2] });
+	Faces[2].push_back(vector<double>{ Faces[0][0][0], HEIGHT_HALF, Faces[0][0][2] });
+	Faces[2].push_back(vector<double>{ Faces[1][0][0], -HEIGHT_HALF, Faces[1][0][2] });
+
+	for (int i = 0;i < 6;i++) {
+		Faces[8].push_back(vector<double>{ width/2* cos(i* M_PI / 3.0), HEIGHT_HALF- offset, width/2* sin(i* M_PI / 3.0) });
+		Faces[9].push_back(vector<double>{ width/2* cos(i* M_PI / 3.0), -HEIGHT_HALF-offset, width/2* sin(i* M_PI / 3.0) });
+	}
+	for (int j = 1;j < 6;j++) {
+		int i = j + 10;
+		Faces[i].push_back(vector<double>{ Faces[8][j - 1][0], -HEIGHT_HALF-offset, Faces[8][j - 1][2] });
+		Faces[i].push_back(vector<double>{ Faces[8][j - 1][0], HEIGHT_HALF - offset, Faces[8][j - 1][2] });
+		Faces[i].push_back(vector<double>{ Faces[8][j][0], HEIGHT_HALF - offset, Faces[8][j][2] });
+		Faces[i].push_back(vector<double>{ Faces[8][j][0], -HEIGHT_HALF - offset, Faces[8][j][2] });
+	}
+	Faces[10].push_back(vector<double>{ Faces[8][5][0], -HEIGHT_HALF-offset, Faces[8][5][2] });
+	Faces[10].push_back(vector<double>{ Faces[9][5][0], HEIGHT_HALF - offset, Faces[9][5][2] });
+	Faces[10].push_back(vector<double>{ Faces[8][0][0], HEIGHT_HALF - offset, Faces[8][0][2] });
+	Faces[10].push_back(vector<double>{ Faces[9][0][0], -HEIGHT_HALF - offset, Faces[9][0][2] });
 	
 
 	setAmbientColor(.1f, .1f, .1f);
@@ -85,14 +87,10 @@ void  Head::draw()
 	glRotatef(thetaz + thetazOff, 0, 0, 1);
 	glPushMatrix();
 
-
-
-	for (int i = 0;i <8;i++) {
+	for (int i = 0;i <16;i++) {
 		if (Faces[i].size() >= 2)
 			drawFace(Faces[i]);
 	}
-
-
 
 	glPopMatrix();
 	glPopMatrix();

@@ -158,6 +158,7 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="DragonBranch.cpp" />
     <ClCompile Include="Fractal.cpp" />
+    <ClCompile Include="global.cpp" />
     <ClCompile Include="Head.cpp" />
     <ClCompile Include="Joint.cpp" />
     <ClCompile Include="KochCurve.cpp" />
@@ -187,6 +188,7 @@
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <ClCompile Include="Neck.cpp" />
     <ClCompile Include="sample.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>

@@ -37,9 +37,22 @@ void Hand::draw()
 	glRotatef(thetaz + thetazOff, 0, 0, 1);
 	//glPushMatrix();
 	glPushMatrix();
+	if (VAL(TANK) == 0) {
+		drawCylinder(length, radius, radius);
+		//hand->draw();
 
-	//glTranslated(-radius/2,-radius/2, -length/2);// draw at center
-	drawCylinder(length, radius, radius);
+	}
+	else {
+		glPushMatrix();
+		float size = length / pow(2, 1 / 3.0);
+		glTranslated(-size, -size, -size);
+		drawBox(size*2, size*2, size*2);
+		glPopMatrix();
+		//hand->draw();
+
+	}
+	////glTranslated(-radius/2,-radius/2, -length/2);// draw at center
+	//drawCylinder(length, radius, radius);
 	glPopMatrix();
 
 	glPopMatrix();
