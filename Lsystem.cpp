@@ -37,18 +37,21 @@ void Lsystem::draw()
 	glPushMatrix();
 	if (VAL(LSYSTEMOBJECTTYPE) == Dragon) {
 		db->length = VAL(LSYSTEMDVALUE);
+		db->thetay = VAL(LSYSTEMINITIALANGLE);
 		db->depth = depth;
 		db->setCode();
 		db->draw();
 	}
 	else if (VAL(LSYSTEMOBJECTTYPE) == KochCurve) {
 		kc->length = VAL(LSYSTEMDVALUE);
+		kc->thetay = VAL(LSYSTEMINITIALANGLE);
 		kc->depth = depth;
 		kc->setCode();
 		kc->draw();
 	}
 	else if (VAL(LSYSTEMOBJECTTYPE) == FractalTree) {
 		fc->length = VAL(LSYSTEMDVALUE);
+		fc->thetay = VAL(LSYSTEMINITIALANGLE);
 		fc->depth = depth;
 		fc->setCode();
 		fc->draw();
