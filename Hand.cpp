@@ -37,7 +37,7 @@ void Hand::draw()
 	glRotatef(thetaz + thetazOff, 0, 0, 1);
 	//glPushMatrix();
 	glPushMatrix();
-	if (VAL(TANK) == 0) {
+	if (VAL(CHANGE_HAND) == 0) {
 		drawCylinder(length, radius, radius);
 		//hand->draw();
 

@@ -86,7 +86,7 @@ void Spider::draw()
 	head->height = 1.0;
 	canon->yoffset = 0;
 	canon2->yoffset = 0;
-	if (VAL(TANK) == 0)
+	if (VAL(CHANGE_BODY) == 0)
 	{
 		
 		glScaled(w, h, l);
@@ -95,7 +95,7 @@ void Spider::draw()
 		head->thetaz = 270;
 
 	}
-	else if (VAL(TANK) == 1||VAL(TANK)==2)
+	else if (VAL(CHANGE_BODY) == 1)
 	{
 		vector<vector<double>>Faces[16];
 		//int counRect=0;
@@ -144,7 +144,7 @@ void Spider::draw()
 		head->thetaz = 270;
 
 	}
-	 if (VAL(TANK) == 2) {
+	 if (VAL(CHANGE_HEAD) == 1) {
 		head->yoffset = h*2.2;
 		head->xoffset = w;
 		head->height = 4;

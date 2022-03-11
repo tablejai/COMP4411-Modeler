@@ -40,7 +40,7 @@ void LowerLeg::draw()
 	glPushMatrix();
 
 	//glTranslated(-radius/2,-radius/2, -length/2);// draw at center
-	if (VAL(TANK) == 0) {
+	if (VAL(CHANGE_LEG) == 0) {
 		drawCylinder(length, radius, radius);
 		hand->draw();
 

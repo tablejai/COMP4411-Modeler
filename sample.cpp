@@ -99,6 +99,11 @@ int main()
 	controls[LSYSTEMITER] = ModelerControl("L-System iteration", 0, 10, 1.0f, 1);
 	controls[MOVECANON] = ModelerControl("MOVECANON", 0, 180, 0.01f, 1);
 	controls[TANK] = ModelerControl("Instances selections", 0, 2, 0, 0);
+	controls[CHANGE_LEG] = ModelerControl("Leg selections", 0, 1, 0, 0);
+	controls[CHANGE_HAND] = ModelerControl("Hand selections", 0, 1, 0, 0);
+	controls[CHANGE_BODY] = ModelerControl("Body selections", 0, 1, 0, 0);
+	controls[CHANGE_HEAD] = ModelerControl("Head selections", 0, 1, 0, 0);
+
 	controls[ANIMATE] = ModelerControl("Animate", 0, 1, 1, 0);
 	controls[ROTATE] = ModelerControl("Rotate", -135, 135, 0.01f, 0);
 
