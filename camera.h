@@ -39,7 +39,8 @@ public:
     Camera();
     
     //---[ Settings ]--------------------------------------
-    
+    void frameAllView(float xchange, float ychange, float zchange);
+
     inline void setElevation( float elevation ) 
     { 
         // don't want elevation to be negative

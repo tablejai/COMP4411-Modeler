@@ -11,7 +11,7 @@
 #include "Head.h"
 #include "GL/gl.h"
 
-struct Spider
+struct Spider:Component
 {
     Spider(int x, int y,int z, int w,int l,int h, ModelerView* view);
     ModelerView* view;
@@ -19,13 +19,10 @@ struct Spider
     int w;
     int h;
     int l;
-    int x;
-    int y;
-    int z;
-    int thetax;
-    int thetay;
-    int thetaz;
-
+  
+    double oldx;
+    double oldy;
+    double oldz;
     UpperLeg* ulu_Leg;
     UpperLeg* uld_Leg;
     UpperLeg* uru_Leg;

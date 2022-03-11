@@ -34,7 +34,7 @@ void Spider::loadTextureShield(char* fName) {
 	glDisable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
-Spider::Spider(int x, int y, int z,int w, int h, int L, ModelerView * view) {
+Spider::Spider(int x, int y, int z,int w, int h, int L, ModelerView * view):Component(BODY){
 	float lg_xoffset = 0.82;
 	float lg_zoffset = 0.88;
 	head = new Head(x-5, y, z, 1.0, 1.0,1.0, nullptr);
@@ -64,9 +64,20 @@ Spider::Spider(int x, int y, int z,int w, int h, int L, ModelerView * view) {
 	 this->x = x;
 	 this->y = y;
 	 this->z = z;
+
 	 this->w = w;
 	 this->h = h;
 	 this->l = L;
+	 xoffset = 0;//for debug mainly
+	 yoffset = 0;
+	 zoffset = 0;
+	 thetax = 0;
+	 thetay = 0;
+	 thetaz = 0;
+	 thetaxOff = 0;
+	 thetayOff = 0;
+	 thetazOff = 0;
+
  }
 
 void Spider::draw()
@@ -75,12 +86,18 @@ void Spider::draw()
 	// matrix stuff.  Unless you want to fudge directly with the 
 	// projection matrix, don't bother with this ...
 	// draw the body
+	TestCompOffset(this);
 	setAmbientColor(.1f, .1f, .1f);
 	setDiffuseColor(COLOR_GREEN);
 	glPushMatrix();
-	//glTranslated(VAL(XPOS), VAL(YPOS),VAL(ZPOS));
+	glTranslated(x + xoffset, y + yoffset, z + zoffset);
 	glPushMatrix();
-	//glTranslated(-w/2.0, -h/2.0, -l/2.0);
+	glRotatef(thetax + thetaxOff, 1, 0, 0);
+	glPushMatrix();
+	glRotatef(thetay + thetayOff, 0, 1, 0);
+	glPushMatrix();
+	glRotatef(thetaz + thetazOff, 0, 0, 1);
+	glPushMatrix();
 	head->yoffset = 0;
 	head->xoffset = 0;
 	head->height = 1.0;
@@ -187,4 +204,10 @@ void Spider::draw()
 	urd_Leg->draw();
 	//TestComp(canon);
 	glPopMatrix();
+
+	glPopMatrix();
+	glPopMatrix();
+	glPopMatrix();
+	glPopMatrix();
+
 }

@@ -1,13 +1,20 @@
 #pragma 
 #include <vector>
 using namespace std;
-#define TestComp(Component)\
+#define TestCompOffset(Component)\
 Component->xoffset = VAL(XPOS);\
 Component->yoffset = VAL(YPOS);\
 Component->zoffset = VAL(ZPOS);\
 Component->thetaxOff = VAL(XTHETA);\
 Component->thetayOff = VAL(YTHETA);\
 Component->thetazOff = VAL(ZTHETA);
+#define TestComp(Component)\
+Component->x = VAL(XPOS);\
+Component->y = VAL(YPOS);\
+Component->z = VAL(ZPOS);\
+Component->thetax = VAL(XTHETA);\
+Component->thetay = VAL(YTHETA);\
+Component->thetaz = VAL(ZTHETA);
 #define OscillateCompX(Component,offset)\
 Component->thetaxOff = sin(VAL(OSCILLATEX)/4.0)/2*offset;
 #define OscillateCompY(Component,offset)\

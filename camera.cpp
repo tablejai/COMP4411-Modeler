@@ -229,7 +229,14 @@ void Camera::lookAt(Vec3f eye, Vec3f at, Vec3f up)
 	glMultMatrixf(m);
 	glTranslated(-eye[0], -eye[1], -eye[2]);
 }
+ void Camera::frameAllView(float xchange, float ychange, float zchange)
+{
 
+	mPosition = Vec3f(1.91546f*2 + xchange, 22.1527*2 + ychange, 0.343346*2 + zchange);
+	mLookAt = Vec3f(-1.26334 + xchange, 2.4072 + ychange, 0.436215 + zchange);
+	mUpVector = Vec3f(0.0f, 1.0f, 0.0f);
+	lookAt(mPosition, mLookAt, mUpVector);
+}
 void Camera::applyViewingTransform() {
 	if( mDirtyTransform )
 		calculateViewingTransformParameters();
@@ -242,8 +249,17 @@ void Camera::applyViewingTransform() {
 	//float* eye = new float[3]{ mPosition[0],mPosition[1],mPosition[2] };
 	//float* center = new float[3]{ mLookAt[0],   mLookAt[1],   mLookAt[2] };
 	//float* up=new float[3]{ mUpVector[0],mUpVector[1],mUpVector[2] };
-
-	lookAt(mPosition, mLookAt, mUpVector);
+	if(VAL(FRAME)==1)
+	 frameAllView(VAL(XPOS), VAL(YPOS), VAL(ZPOS));
+	else
+	  lookAt(mPosition, mLookAt, mUpVector);
+	for (int i = 0;i < 3;i++) {
+		cout<<"pos: " << mPosition[i] << endl;
+	}
+	cout << "xxxxxxxxxxx" << endl;
+	for (int i = 0;i < 3;i++) {
+		cout<<"lookAt: "  << mLookAt[i] << endl;
+	}
 }
 
 

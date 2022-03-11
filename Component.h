@@ -1,5 +1,6 @@
 #pragma once
 typedef enum {
+	BODY,
 	UPPERLEG,
 	LOWERLEG,
 	HAND,
