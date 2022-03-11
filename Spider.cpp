@@ -34,7 +34,7 @@ void Spider::loadTextureShield(char* fName) {
 Spider::Spider(int x, int y, int z,int w, int h, int L, ModelerView * view) {
 	float lg_xoffset = 0.82;
 	float lg_zoffset = 0.88;
-
+	head = new Head(x-5, y, z, 1.0, 1.0,1.0, nullptr);
 	 ulu_Leg = new UpperLeg(w+x- lg_xoffset,y , z+ L- lg_zoffset, 0.2,3 , nullptr);
 	 ulu_Leg->thetax = 20;
 	 ulu_Leg->lowerleg->thetax = 69.15;
@@ -80,7 +80,9 @@ void Spider::draw()
 	loadTextureShield("meme.bmp");
 
 	glPopMatrix();
-	//TestComp(ulu_Leg);
+	TestComp(head);
+	head->draw();
+
 	OscillateCompY(ulu_Leg,10);
 	OscillateCompY(uld_Leg, -10);
 	OscillateCompY(uru_Leg, 10);

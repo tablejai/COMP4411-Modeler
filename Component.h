@@ -3,6 +3,7 @@ typedef enum {
 	UPPERLEG,
 	LOWERLEG,
 	HAND,
+	HEAD,
 	METABALL,
 	NUMTYPE
 }Type;

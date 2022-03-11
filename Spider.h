@@ -8,6 +8,7 @@
 #include "global.h"
 #include "modelerglobals.h"
 #include "canon.h"
+#include "Head.h"
 #include "GL/gl.h"
 
 struct Spider
@@ -31,6 +32,7 @@ struct Spider
     UpperLeg* urd_Leg;
     MetaBall* metaball;
     Canon* canon;
+    Head* head;
 
     virtual void draw();
     void loadTextureShield(char * fName);

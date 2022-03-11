@@ -17,6 +17,7 @@ Hand::Hand(int x, int y, int z, float r, float L, char* label) :Component(HAND) 
 	thetayOff = 0;
 	thetazOff = 0;
 }
+
 void Hand::draw()
 {
 	// This call takes care of a lot of the nasty projection 
