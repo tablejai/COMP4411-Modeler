@@ -102,7 +102,8 @@ int main()
 	controls[CHANGE_BODY] = ModelerControl("Body selections", 0, 1, 0, 0);
 	controls[CHANGE_HEAD] = ModelerControl("Head selections", 0, 1, 0, 0);
 	controls[FRAME] = ModelerControl("Frame Enabled", 0, 1, 0, 0);
-	controls[ANIMATE] = ModelerControl("Animate", 0, 1, 1, 0);
+	controls[ANIMATE] = ModelerControl("Animate", 0, 1, 0.01f, 0);
+	controls[HIGHNESS] = ModelerControl("Highness", 0, 1, 1.0f, 0);
 	controls[ROTATE] = ModelerControl("Rotate", -135, 135, 0.01f, 0);
 
 

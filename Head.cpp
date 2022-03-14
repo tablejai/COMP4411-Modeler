@@ -84,6 +84,14 @@ void  Head::draw()
 	glPushMatrix();
 	glRotatef(thetay + thetayOff, 0, 1, 0);
 	glPushMatrix();
+	static float highness_dir = 1.0;
+	thetazOff += (highness_dir * VAL(HIGHNESS) * 2.0);
+	if (thetazOff >= 10) {
+		highness_dir = -1.0;
+	}
+	else if (thetazOff <= -10) {
+		highness_dir = 1.0;
+	}
 	glRotatef(thetaz + thetazOff, 0, 0, 1);
 	glPushMatrix();
 
