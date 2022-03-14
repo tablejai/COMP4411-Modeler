@@ -199,6 +199,7 @@
     <ClCompile Include="canon.cpp" />
     <ClCompile Include="Spider.cpp" />
     <ClCompile Include="SpiderModel.cpp" />
+    <ClCompile Include="Torus.cpp" />
     <ClCompile Include="UpperLeg.cpp" />
     <ClCompile Include="LowerLeg.cpp" />
   </ItemGroup>
@@ -212,6 +213,7 @@
     <ClInclude Include="global.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="Head.h" />
+    <ClInclude Include="Torus.h" />
     <ClInclude Include="Joint.h" />
     <ClInclude Include="KochCurve.h" />
     <ClInclude Include="LowerLeg.h" />

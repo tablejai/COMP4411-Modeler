@@ -78,6 +78,8 @@ Spider::Spider(int x, int y, int z,int w, int h, int L, ModelerView * view):Comp
 	 thetayOff = 0;
 	 thetazOff = 0;
 
+	 angle_ring = new Torus(-2, 0, -2.5, 1.5, 0.3, 8, 15);
+
  }
 
 void Spider::draw()
@@ -202,6 +204,7 @@ void Spider::draw()
 	uld_Leg->draw();
 	uru_Leg->draw();
 	urd_Leg->draw();
+	angle_ring->draw();
 	//TestComp(canon);
 	glPopMatrix();
 

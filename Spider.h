@@ -9,6 +9,7 @@
 #include "modelerglobals.h"
 #include "canon.h"
 #include "Head.h"
+#include "Torus.h"
 #include "GL/gl.h"
 
 struct Spider:Component
@@ -31,6 +32,7 @@ struct Spider:Component
     Canon* canon;
     Canon* canon2;
     Head* head;
+    Torus* angle_ring;
 
     virtual void draw();
     void loadTextureShield(char * fName);
