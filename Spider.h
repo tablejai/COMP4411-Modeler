@@ -5,6 +5,7 @@
 #include "MetaBall.h"
 #include "UpperLeg.h"
 #include <FL/gl.h>
+#include "FL/GLU.h"
 #include "global.h"
 #include "modelerglobals.h"
 #include "canon.h"
@@ -36,4 +37,5 @@ struct Spider:Component
 
     virtual void draw();
     void loadTextureShield(char * fName);
+    void loadTextureSphere(char * fName);
 };

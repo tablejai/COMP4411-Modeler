@@ -4,6 +4,41 @@
 #include <vector>
 using namespace std;
 
+void Spider::loadTextureSphere(char* fName) {
+
+	int textureWidth, textureHeight;
+	unsigned char* image = readBMP(fName, textureWidth, textureHeight);
+
+	GLuint textureObj;
+
+	glGenTextures(1, &textureObj);
+	glBindTexture(GL_TEXTURE_2D, textureObj);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, textureWidth, textureHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, image);	
+
+	glEnable(GL_TEXTURE_2D);
+	// Create the sphere
+	glPushMatrix();
+	glTranslated(1, 0, 0);
+	glRotatef(90.0, 1.0, 0.0, 0.0);
+
+	GLUquadric* quadric = gluNewQuadric();
+	gluQuadricDrawStyle(quadric, GLU_FILL);
+	gluQuadricNormals(quadric, GLU_SMOOTH);
+	gluQuadricTexture(quadric, GL_TRUE);
+	gluSphere(quadric, 0.2, 30, 30);
+	gluDeleteQuadric(quadric);
+	glPopMatrix();
+
+	// Force the rendering (off-screen)
+	glEnd();
+	glDisable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, 0);
+}
+
 void Spider::loadTextureShield(char* fName) {
 	int textureWidth, textureHeight;
 	unsigned char* image = readBMP(fName, textureWidth, textureHeight);
@@ -24,7 +59,7 @@ void Spider::loadTextureShield(char* fName) {
 	glBegin(GL_QUADS);
 
 	glNormal3d(0, 0, -1.0);
-	glTexCoord2f(0.0, 1.0); glVertex3d(-1.0, -1.0, 1.0);
+	glTexCoord2f(0.0, 1.0); glVertex3d(-1.0, -3.0, 1.0);
 	glTexCoord2f(0.0, 0.0); glVertex3d(-1.0, -1.0, 0.0);
 	glTexCoord2f(1.0, 0.0); glVertex3d(0.0, -1.0, 0.0);
 	glTexCoord2f(1.0, 1.0); glVertex3d(0.0, -1.0, 1.0);
@@ -172,7 +207,8 @@ void Spider::draw()
 		drawCylinder(h * 2.2,0.5,0.5);
 		glPopMatrix();
 	}
-	loadTextureShield("meme.bmp");
+	// loadTextureShield("meme.bmp");
+	loadTextureSphere("meme.bmp");
 
 	glPopMatrix();
 	//TestComp(head);
