@@ -108,7 +108,11 @@ void ModelerView::draw()
     m_camera->applyViewingTransform();
 
     glLightfv( GL_LIGHT0, GL_POSITION, lightPosition0 );
-    glLightfv( GL_LIGHT0, GL_DIFFUSE, lightDiffuse0 );
+	// Remember to change this for Project 4
+    //glLightfv( GL_LIGHT0, GL_DIFFUSE, lightDiffuse0 );
+    glLightfv( GL_LIGHT0, GL_SPECULAR, lightDiffuse0 );
     glLightfv( GL_LIGHT1, GL_POSITION, lightPosition1 );
-    glLightfv( GL_LIGHT1, GL_DIFFUSE, lightDiffuse1 );
+	// Remember to change this for Project 4
+    //glLightfv( GL_LIGHT1, GL_DIFFUSE, lightDiffuse1 );
+    glLightfv( GL_LIGHT1, GL_AMBIENT, lightDiffuse1 );
 }
