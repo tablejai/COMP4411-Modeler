@@ -21,18 +21,18 @@ B/W:
 Delete yes/no when appropriate
 
 
-W dramatic light									   yes/no
-W adjustable LoD									yes/no
-W your idea 											yes/no
-B texture map										  yes/no
-B polygonal faces (triangles)				   yes/no 
-B animation       									  yes/no
-B individual looking (not just red/green)  yes/no
-B frame all											   yes/no 
-BW up vector 										 yes/no
-2B new primitives for each 					yes/no
-2B L-system											yes/no
-2B mood cycling 									yes/no
-4B metaballs										  yes/no
-8B goal-oriented motion 						yes/no
-+4B joint contraints 							    yes/no
+* W dramatic light									                **yes**
+* W adjustable LoD									**yes**
+* W your idea 											**yes**
+* B texture map										  **yes**
+* B polygonal faces (triangles)				   **yes** 
+* B animation       									  **yes**
+* B individual looking (not just red/green)  **yes**
+* B frame all											   **yes** 
+* BW up vector 										 **yes**
+* 2B new primitives for each 					**yes**
+* 2B L-system											**yes**
+* 2B mood cycling 									**yes**
+* 4B metaballs										  **yes**
+* 8B goal-oriented motion 						**yes**
+* +4B joint contraints 							    yes/no
