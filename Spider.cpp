@@ -122,6 +122,8 @@ Spider::Spider(int x, int y, int z,int w, int h, int L, ModelerView * view):Comp
  }
 
 
+static GLfloat lightPosition0[] = { 8, 0, -8, 0 };
+static GLfloat lightDiffuse0[]  = { 1,1,1,1 };
 
 void Spider::draw()
 {
@@ -130,6 +132,10 @@ void Spider::draw()
 	// projection matrix, don't bother with this ...
 	// draw the body
 	TestCompOffset(this);
+
+    glLightfv( GL_LIGHT2, GL_POSITION, lightPosition0 );
+    glLightfv( GL_LIGHT2, GL_DIFFUSE, lightPosition0 );
+
 	setAmbientColor(.1f, .1f, .1f);
 	setDiffuseColor(COLOR_GREEN);
 	glPushMatrix();
