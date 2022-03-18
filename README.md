@@ -2,6 +2,7 @@
 
 ## Notes
 * Please enable the Animate option at the top of the window at all times
+* The highness(Mood) affects the animation as well
 
 ## Students
 
