@@ -16,8 +16,8 @@ HKUST login(s):
 
 Basic requirements: 
 Please state what 2B you implemented to exclude from your B/W scores below
-B ______
-B ______
+* B Texture Map
+* B Polygonal Face
 
 B/W:
 
