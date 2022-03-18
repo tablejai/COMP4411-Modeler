@@ -4,11 +4,11 @@
 
 Tentacle::Tentacle(Tentacle* _parent, XYZ _start, float r, float l) {
 	parent = _parent;
+	parent->child = this;
 	start = _start;
 	radius = r;
 	length = l;
 
-	follow(XYZ{VAL(TENTACLE_X_TAR), VAL(TENTACLE_Y_TAR), VAL(TENTACLE_Z_TAR)});
 	update();
 }
 
@@ -29,7 +29,7 @@ void Tentacle::drawCylinderWithTwoPts(XYZ a, XYZ b) {
 	Vec3f t;
 	cross(z, p, t);
 
-	double angle = 180 / M_PI * acos(dot(z,p)/p.length());
+	double angle = 180 / M_PI * acos(dot(z,p)/p.length())+180;
 	
 	glPushMatrix();
 	glTranslated(start.x, start.y, start.z);
@@ -48,36 +48,38 @@ void Tentacle::drawCylinderWithTwoPts(XYZ a, XYZ b) {
 	glPopMatrix();
 	glPopMatrix();
 
+
 }
 
 Tentacle::Tentacle(XYZ _start, float r, float l) {
 	start = _start;
 	radius = r;
 	length = l;
-
 	follow(XYZ{VAL(TENTACLE_X_TAR), VAL(TENTACLE_Y_TAR), VAL(TENTACLE_Z_TAR)});
 	update();
 }
 
-void Tentacle::followParent() {
-	follow(XYZ(parent->start));
+void Tentacle::followChild(XYZ tar) {
+
+
+	XYZ dir = { tar.x - start.x,tar.y - start.y,tar.z - start.z };
+	theta[1] = atan2(dir.z, dir.x);
+	float x = sqrt(tar.x * tar.x + tar.z * tar.z);
+	float l1 = length;
+	float l2 = this->child->length;
+	float theta2 = this->child->theta[0];
+	theta[0] = (-l2*sin(theta2)*x+(l1+l2*cos(theta2))*dir.y) / (-l2 * sin(theta2) *dir.y+ (l1 + l2 * cos(theta2)) * dir.x)/180*3.1415+0.01;
+
 }
 
 void Tentacle::follow(XYZ tar) {
-	XYZ dir = XYZ{ tar.x - start.x, tar.y - start.y, tar.z - start.z };
-	// TODO: Check the angles
-	float magnitude = sqrtf(dir.x* dir.x+ dir.y * dir.y + dir.z * dir.z);
-	theta[0] = atan2(dir.y, dir.x);
-	theta[1] = asin(dir.z / magnitude);
-	//theta[1] = atan2(dir.z, dir.x);
-	
+	XYZ dir = { tar.x - start.x,tar.y - start.y,tar.z - start.z };
+	theta[1] = atan2(dir.z,dir.x);
 
-	//float magnitude = sqrtf(dir.x* dir.x+ dir.y * dir.y + dir.z * dir.z);
-	//dir.x = dir.x * length / magnitude * -1.0;
-	//dir.y = dir.y * length / magnitude * -1.0;
-	//dir.z = dir.z * length / magnitude * -1.0;
+	float x = sqrt(tar.x*tar.x+ tar.z*tar.z);
+	if(parent!=nullptr)
+	theta[0] = acosf((x* x + tar.y*tar.y-length*length-pow(parent->length,2))/2/(parent->length)/(length))+2* 3.1415;
 
-	//start = { tar.x + dir.x, tar.y + dir.y, tar.z + dir.z };
 };
 
 void Tentacle::draw() {
@@ -88,6 +90,8 @@ void Tentacle::draw() {
 
 void Tentacle::update() {
 	// TODO: Check the angles
+	if(parent!=nullptr)
+	start = this->parent->end;
 	float dx = length * cos(theta[0]);
 	float dy = length * sin(theta[0]);
 	float dz = length * sin(theta[1]);

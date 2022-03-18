@@ -20,7 +20,7 @@ struct Tentacle {
     Tentacle(XYZ _start, float r, float l);
 
     void drawCylinderWithTwoPts(XYZ a, XYZ b);
-    void followParent(void);
+    void followChild(XYZ tar);
     void follow(XYZ tar);
     void draw(void);
     void update();

@@ -95,8 +95,9 @@ Spider::Spider(int x, int y, int z,int w, int h, int L, ModelerView * view):Comp
 	 canon2->thetax = 270;
 	 canon2->thetay = 270;
 	 tentacle1 = new Tentacle(XYZ{ x + 2.0, y + 2.0, z - 0.0 }, 0.3, 2);
-	 //tentacle2 = new Tentacle(tentacle1,tentacle1->end, 0.3, 2);
-	 //tentacle3 = new Tentacle(tentacle2,tentacle2->end, 0.3, 2);
+	 tentacle2 = new Tentacle(tentacle1, tentacle1->end, 0.3, 2);
+
+	// tentacle3 = new Tentacle(tentacle2,tentacle2->end, 0.3, 2);
 
 	 this->view = view;
 	 this->x = x;
@@ -119,6 +120,8 @@ Spider::Spider(int x, int y, int z,int w, int h, int L, ModelerView * view):Comp
 	 angle_ring = new Torus(-2, 0, -2.5, 1.5, 0.3, 8, 15);
 
  }
+
+
 
 void Spider::draw()
 {
@@ -243,15 +246,26 @@ void Spider::draw()
 	uld_Leg->draw();
 	uru_Leg->draw();
 	urd_Leg->draw();
+
+	tentacle2->follow(XYZ{ VAL(TENTACLE_X_TAR), VAL(TENTACLE_Y_TAR), VAL(TENTACLE_Z_TAR) });
+	tentacle2->update();
+	tentacle2->draw();
+	tentacle1->followChild(XYZ{ VAL(TENTACLE_X_TAR), VAL(TENTACLE_Y_TAR), VAL(TENTACLE_Z_TAR) });
+	tentacle1->update();
+	tentacle1->draw();
+
 	//tentacle3->follow(XYZ{VAL(TENTACLE_X_TAR), VAL(TENTACLE_Y_TAR), VAL(TENTACLE_Z_TAR)});
 	//tentacle3->update();
 	//tentacle3->draw();
 	//tentacle2->followParent();
 	//tentacle2->update();
 	//tentacle2->draw();
-	tentacle1->follow(XYZ{VAL(TENTACLE_X_TAR), VAL(TENTACLE_Y_TAR), VAL(TENTACLE_Z_TAR)});
-	tentacle1->update();
-	tentacle1->draw();
+
+
+
+	//tentacle3->followParent();
+	//tentacle3->update();
+	//tentacle3->draw();
 	angle_ring->draw();
 	//TestComp(canon);
 	glPopMatrix();
