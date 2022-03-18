@@ -88,9 +88,9 @@ void Tentacle::follow(XYZ tar) {
 	float x = sqrt(tar.x*tar.x+ tar.z*tar.z);
 	if (parent != nullptr) {
 	theta[0] =  CLAMP(acosf((x* x + tar.y*tar.y-length*length-pow(parent->length,2))/2/(parent->length)/(length)),0.0, M_PI)+2* 3.1415;
-	if (std::isnan(theta[0])) {
-		theta[0] = 0;
-	}
+		if (std::isnan(theta[0])) {
+			theta[0] = 0;
+		}
 	}
 
 };
