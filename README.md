@@ -1,5 +1,8 @@
 # COMP4411-Modeler
 
+## Notes
+* Please enable the Animate option at the top of the window at all times
+
 ## Students
 
 * Kong Siu Hei
