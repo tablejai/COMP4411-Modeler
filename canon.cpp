@@ -74,11 +74,12 @@ void Canon::draw()
 	glPushMatrix();
 	if (VAL(ANIMATE) == 1.0) {
 		static float dir = 1.0;
-		thetayOff += dir;
-		if (thetayOff == 180) {
+		float increment = dir * VAL(HIGHNESS) * 2.0;
+		thetayOff += increment;
+		if (thetayOff >= 180) {
 			dir = -1.0;
 		}
-		else if (thetayOff == 0) {
+		else if (thetayOff <= 0) {
 			dir = 1.0;
 		}
 	}
