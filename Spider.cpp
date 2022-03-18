@@ -225,6 +225,7 @@ void Spider::draw()
 	glPopMatrix();
 	//TestComp(head);
 	//head->thetax = 90;
+	if (VAL(LEVEL_OF_DETAIL) >= 1) 
 	head->draw();
 
 	OscillateCompY(ulu_Leg,10);
@@ -246,7 +247,9 @@ void Spider::draw()
 	OscillateCompY(urd_Leg->lowerleg->hand, -60);
 
 
+	if (VAL(LEVEL_OF_DETAIL) >= 2) 
 	canon->draw();
+	if (VAL(LEVEL_OF_DETAIL) >= 2) 
 	canon2->draw();
 	ulu_Leg->draw();
 	uld_Leg->draw();
@@ -255,9 +258,11 @@ void Spider::draw()
 
 	tentacle2->follow(XYZ{ VAL(TENTACLE_X_TAR) + tentacle1->start.x, VAL(TENTACLE_Y_TAR) + tentacle1->start.y, VAL(TENTACLE_Z_TAR)+ tentacle1->start.z });
 	tentacle2->update();
+	if (VAL(LEVEL_OF_DETAIL) >= 3) 
 	tentacle2->draw();
 	tentacle1->followChild(XYZ{ VAL(TENTACLE_X_TAR), VAL(TENTACLE_Y_TAR), VAL(TENTACLE_Z_TAR) });
 	tentacle1->update();
+	if (VAL(LEVEL_OF_DETAIL) >= 3) 
 	tentacle1->draw();
 
 	//tentacle3->follow(XYZ{VAL(TENTACLE_X_TAR), VAL(TENTACLE_Y_TAR), VAL(TENTACLE_Z_TAR)});
@@ -272,6 +277,7 @@ void Spider::draw()
 	//tentacle3->followParent();
 	//tentacle3->update();
 	//tentacle3->draw();
+	if (VAL(LEVEL_OF_DETAIL) >= 4) 
 	angle_ring->draw();
 	//TestComp(canon);
 	glPopMatrix();

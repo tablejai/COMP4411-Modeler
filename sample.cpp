@@ -109,6 +109,7 @@ int main()
 	controls[TENTACLE_Y_TAR] = ModelerControl("Tentacle Y Position", -5.0, 5, 1.0f, 0);
 	controls[TENTACLE_Z_TAR] = ModelerControl("Tentacle Z Position", -5.0, 5, 1.0f, 0);
 	controls[TENTACLE_ANG_CONSTRAINT] = ModelerControl("Tentacle Angle Constraint", -135, 135, 1.0f, 0);
+	controls[LEVEL_OF_DETAIL] = ModelerControl("Level of Detail", 0, 5, 0.01f, 5);
 	
 
 

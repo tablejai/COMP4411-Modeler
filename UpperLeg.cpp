@@ -45,6 +45,7 @@ void UpperLeg::draw()
 
 	drawCylinder(length,radius,radius);
 	
+	if (VAL(LEVEL_OF_DETAIL) >= 5) 
 	for (auto& balls : metaballs) {
 		//TestComp(balls);
 		balls->draw();
