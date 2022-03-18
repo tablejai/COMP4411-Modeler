@@ -105,6 +105,11 @@ int main()
 	controls[ANIMATE] = ModelerControl("Animate", 0, 1, 0.01f, 0);
 	controls[HIGHNESS] = ModelerControl("Highness", 0, 1, 1.0f, 0);
 	controls[ROTATE] = ModelerControl("Rotate", -135, 135, 0.01f, 0);
+	controls[TENTACLE_X_TAR] = ModelerControl("Tentacle X Position", -5, 5, 1.0f, 0);
+	controls[TENTACLE_Y_TAR] = ModelerControl("Tentacle Y Position", -5, 5, 1.0f, 0);
+	controls[TENTACLE_Z_TAR] = ModelerControl("Tentacle Z Position", -5, 5, 1.0f, 0);
+	controls[TENTACLE_ANG_CONSTRAINT] = ModelerControl("Tentacle Angle Constraint", -135, 135, 1.0f, 0);
+	
 
 
 	// ModelerApplication::Instance()->Init(&createSampleModel, controls, NUMCONTROLS);

@@ -197,6 +197,7 @@
     </ClCompile>
     <ClCompile Include="Hand.cpp" />
     <ClCompile Include="canon.cpp" />
+    <ClCompile Include="Tentacle.cpp" />
     <ClCompile Include="Spider.cpp" />
     <ClCompile Include="SpiderModel.cpp" />
     <ClCompile Include="Torus.cpp" />
@@ -213,6 +214,7 @@
     <ClInclude Include="global.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="Head.h" />
+    <ClInclude Include="Tentacle.h" />
     <ClInclude Include="Torus.h" />
     <ClInclude Include="Joint.h" />
     <ClInclude Include="KochCurve.h" />

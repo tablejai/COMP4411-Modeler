@@ -12,6 +12,7 @@
 #include "Head.h"
 #include "Torus.h"
 #include "GL/gl.h"
+#include "Tentacle.h"
 
 struct Spider:Component
 {
@@ -34,6 +35,10 @@ struct Spider:Component
     Canon* canon2;
     Head* head;
     Torus* angle_ring;
+    Tentacle* tentacle1;
+    Tentacle* tentacle2;
+    Tentacle* tentacle3;
+    
 
     virtual void draw();
     void loadTextureShield(char * fName);
