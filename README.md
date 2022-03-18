@@ -38,4 +38,4 @@ Delete yes/no when appropriate
 * 2B mood cycling 									**yes**
 * 4B metaballs										  **yes**
 * 8B goal-oriented motion 						**yes**
-* +4B joint contraints 							    yes/no
+* +4B joint contraints 							    **yes**
