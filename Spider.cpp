@@ -94,7 +94,7 @@ Spider::Spider(int x, int y, int z,int w, int h, int L, ModelerView * view):Comp
 	 canon->thetay = 270;
 	 canon2->thetax = 270;
 	 canon2->thetay = 270;
-	 tentacle1 = new Tentacle(XYZ{ x + 2.0, y + 2.0, z - 0.0 }, 0.3, 2);
+	 tentacle1 = new Tentacle(XYZ{ x + 3.0, y + 1.0, z - 0.0 }, 0.3, 2);
 	 tentacle2 = new Tentacle(tentacle1, tentacle1->end, 0.3, 2);
 
 	// tentacle3 = new Tentacle(tentacle2,tentacle2->end, 0.3, 2);
@@ -247,7 +247,7 @@ void Spider::draw()
 	uru_Leg->draw();
 	urd_Leg->draw();
 
-	tentacle2->follow(XYZ{ VAL(TENTACLE_X_TAR), VAL(TENTACLE_Y_TAR), VAL(TENTACLE_Z_TAR) });
+	tentacle2->follow(XYZ{ VAL(TENTACLE_X_TAR) + tentacle1->start.x, VAL(TENTACLE_Y_TAR) + tentacle1->start.y, VAL(TENTACLE_Z_TAR)+ tentacle1->start.z });
 	tentacle2->update();
 	tentacle2->draw();
 	tentacle1->followChild(XYZ{ VAL(TENTACLE_X_TAR), VAL(TENTACLE_Y_TAR), VAL(TENTACLE_Z_TAR) });

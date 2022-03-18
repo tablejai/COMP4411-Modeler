@@ -1,6 +1,12 @@
 #include "Tentacle.h"
+#include <algorithm>
+#include <iomanip>
+#include <iostream>
 
 #define M_PI 3.141592653589793238462643383279502
+#define MAX(x,y) (((x) >= (y))? (x): (y))
+#define MIN(x,y) (((x) <= (y))? (x): (y))
+#define CLAMP(x,upper, lower) MAX(upper,MIN(lower, x))
 
 Tentacle::Tentacle(Tentacle* _parent, XYZ _start, float r, float l) {
 	parent = _parent;
@@ -69,6 +75,9 @@ void Tentacle::followChild(XYZ tar) {
 	float l2 = this->child->length;
 	float theta2 = this->child->theta[0];
 	theta[0] = (-l2*sin(theta2)*x+(l1+l2*cos(theta2))*dir.y) / (-l2 * sin(theta2) *dir.y+ (l1 + l2 * cos(theta2)) * dir.x)/180*3.1415+0.01;
+	if (std::isnan(theta[0])) {
+		theta[0] = 0;
+	}
 
 }
 
@@ -77,8 +86,12 @@ void Tentacle::follow(XYZ tar) {
 	theta[1] = atan2(dir.z,dir.x);
 
 	float x = sqrt(tar.x*tar.x+ tar.z*tar.z);
-	if(parent!=nullptr)
-	theta[0] = acosf((x* x + tar.y*tar.y-length*length-pow(parent->length,2))/2/(parent->length)/(length))+2* 3.1415;
+	if (parent != nullptr) {
+	theta[0] =  CLAMP(acosf((x* x + tar.y*tar.y-length*length-pow(parent->length,2))/2/(parent->length)/(length)),0.0, M_PI)+2* 3.1415;
+	if (std::isnan(theta[0])) {
+		theta[0] = 0;
+	}
+	}
 
 };
 
